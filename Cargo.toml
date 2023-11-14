@@ -2,7 +2,29 @@
 name = "relativize-playlist"
 version = "0.1.0"
 edition = "2021"
+authors = ["poscat <poscat@poscat.moe>"]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+repository = "https://github.com/poscat0x04/relativize-playlist"
+
+readme = "README.md"
+license = "BSD-3"
+
+categories = ["command-line-utilities"]
 
 [dependencies]
+argh = "0.1"
+tempfile = "3.8"
+walkdir = "2.4"
+
+[dependencies.anyhow]
+version = "1.0"
+features = ["backtrace"]
+
+[[bin]]
+name = "relativize-m3u"
+path = "src/main.rs"
+
+[profile.release]
+opt-level = 'z'
+lto = true
+strip = true
